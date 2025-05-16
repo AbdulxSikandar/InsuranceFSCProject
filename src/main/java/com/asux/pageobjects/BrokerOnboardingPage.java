@@ -69,19 +69,19 @@ public class BrokerOnboardingPage extends base {
     // }
 
     public boolean isLogoClickable() {
-    waitHelper.waitForElementToBeVisible(ASUlogo);
-    String currentUrl = driver.getCurrentUrl();
-    try {
-        ac.click(ASUlogo);
-        // Wait briefly to see if any action occurs
-        Thread.sleep(1000);
-        String newUrl = driver.getCurrentUrl();
-        boolean urlChanged = !currentUrl.equals(newUrl);
-        System.out.println("URL changed after click: " + urlChanged);
-        return urlChanged; // Return true only if the click caused a change
+        waitHelper.waitForElementToBeVisible(ASUlogo);
+        String currentUrl = driver.getCurrentUrl();
+        try {
+            ac.click(ASUlogo);
+            // Wait briefly to see if any action occurs
+            Thread.sleep(1000);
+            String newUrl = driver.getCurrentUrl();
+            boolean urlChanged = !currentUrl.equals(newUrl);
+            System.out.println("URL changed after click: " + urlChanged);
+            return urlChanged; // Return true only if the click caused a change
         } catch (Exception e) {
-        System.out.println("Exception during click: " + e.getMessage());
-        return false;
+            System.out.println("Exception during click: " + e.getMessage());
+            return false;
         }
     }   
 
@@ -93,19 +93,19 @@ public class BrokerOnboardingPage extends base {
     }
 
     public boolean isWelcometoItsmeClickable() {
-    waitHelper.waitForElementToBeVisible(Nextbutton);
-    String currentUrl = driver.getCurrentUrl();
-    try {
-        ac.click(Nextbutton);
-        // Wait briefly to see if any action occurs
-        Thread.sleep(1000);
-        String newUrl = driver.getCurrentUrl();
-        boolean urlChanged = !currentUrl.equals(newUrl);
-        System.out.println("URL changed after click on Welcometoitsme Button: " + urlChanged);
-        return urlChanged; // Return true only if the click caused a change
+        waitHelper.waitForElementToBeVisible(Nextbutton);
+        String currentUrl = driver.getCurrentUrl();
+        try {
+            ac.click(Nextbutton);
+            // Wait briefly to see if any action occurs
+            Thread.sleep(1000);
+            String newUrl = driver.getCurrentUrl();
+            boolean urlChanged = !currentUrl.equals(newUrl);
+            System.out.println("URL changed after click on Welcometoitsme Button: " + urlChanged);
+            return urlChanged; // Return true only if the click caused a change
         } catch (Exception e) {
-        System.out.println("Exception during click: " + e.getMessage());
-        return false;
+            System.out.println("Exception during click: " + e.getMessage());
+            return false;
         }
     }  
 
