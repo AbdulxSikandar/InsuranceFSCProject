@@ -52,20 +52,62 @@ public class BrokerOnboardingPage extends base {
         waitHelper.waitForElementToBeVisible(ASUlogo);
         return ASUlogo.isDisplayed();
     }
+    
 
     // Method to check if the logo is Clickable
+    // public boolean isLogoClickable() {
+    //     waitHelper.waitForElementToBeVisible(ASUlogo);
+    //     try {
+    //         ac.click(ASUlogo);
+    //         System.out.println("Logo is clickable");
+    //         return true; // If no exception, it's clickable
+    //     } catch (Exception e) {
+    //         System.out.println("Logo is not clickable");
+    //         return false;
+    //          // If exception occurs, it's not clickable
+    //     }
+    // }
+
     public boolean isLogoClickable() {
-        waitHelper.waitForElementToBeVisible(ASUlogo);
-        try {
-            ac.click(ASUlogo);
-            System.out.println("Logo is clickable");
-            return true; // If no exception, it's clickable
+    waitHelper.waitForElementToBeVisible(ASUlogo);
+    String currentUrl = driver.getCurrentUrl();
+    try {
+        ac.click(ASUlogo);
+        // Wait briefly to see if any action occurs
+        Thread.sleep(1000);
+        String newUrl = driver.getCurrentUrl();
+        boolean urlChanged = !currentUrl.equals(newUrl);
+        System.out.println("URL changed after click: " + urlChanged);
+        return urlChanged; // Return true only if the click caused a change
         } catch (Exception e) {
-            System.out.println("Logo is not clickable");
-            return false;
-             // If exception occurs, it's not clickable
+        System.out.println("Exception during click: " + e.getMessage());
+        return false;
         }
+    }   
+
+
+     // Method to check if the WelcometoItsme button is displayed
+    public boolean isWelcometoItsmeDisplayed() {
+        waitHelper.waitForElementToBeVisible(Nextbutton);
+        return Nextbutton.isDisplayed();
     }
+
+    public boolean isWelcometoItsmeClickable() {
+    waitHelper.waitForElementToBeVisible(Nextbutton);
+    String currentUrl = driver.getCurrentUrl();
+    try {
+        ac.click(Nextbutton);
+        // Wait briefly to see if any action occurs
+        Thread.sleep(1000);
+        String newUrl = driver.getCurrentUrl();
+        boolean urlChanged = !currentUrl.equals(newUrl);
+        System.out.println("URL changed after click on Welcometoitsme Button: " + urlChanged);
+        return urlChanged; // Return true only if the click caused a change
+        } catch (Exception e) {
+        System.out.println("Exception during click: " + e.getMessage());
+        return false;
+        }
+    }  
 
     // Constructor to use the shared driver
     public BrokerOnboardingPage() {

@@ -95,6 +95,16 @@ public class BrokerOnboardingTest extends base {
         Assert.assertEquals(actualText, expectedText, "Button text for Deutsch does not match");
     }
 
+     @Test
+    public void testwelcomeitsmeIsDisplayed() {
+        Assert.assertTrue(onboardingPage.isWelcometoItsmeDisplayed(), "Welcome to Itsme Button is not displayed on Broker Onboarding Page.");
+    }
+
+    @Test
+    public void testwelcomeitsmeIsClickable() {
+        Assert.assertTrue(onboardingPage.isWelcometoItsmeClickable(), "Welcome to Itsme Button should be clickable.");
+    }
+
     // @Test(priority = 1)
     // public void testSubmitWithoutEmail() {
     //     try {
